@@ -50,6 +50,7 @@ function skaparutnat(x_max, y_max, z_max) {
 }
 
 
+
 // =====================
 // BOMBER
 function skapabomb(y, x, z){
@@ -165,8 +166,251 @@ function öppning(y, x, z){
     if (rutnat[y][x][z][4]) {
         spel = false;
     } else {
-        rutnat[y][x][z][6] = true;
+
+        if (rutnat[y][x][z][6]=== false &&
+            rutnat[y][x][z][4] === false &&
+            rutnat[y][x][z][3] === 0 &&
+            rutnat[y][x][z][5] === false) {
+
+            if (y+1 < y_max &&
+                rutnat[y+1][x][z][6]=== false &&
+                rutnat[y+1][x][z][4] === false &&
+                rutnat[y+1][x][z][3] === 0 &&
+                rutnat[y+1][x][z][5] === false) {
+
+                öppning(y+1, x, z);
+
+                if (x-1 >= 0 &&
+                    rutnat[y+1][x-1][z][6]=== false &&
+                    rutnat[y+1][x-1][z][4] === false &&
+                    rutnat[y+1][x-1][z][3] === 0 &&
+                    rutnat[y+1][x-1][z][5] === false) {
+                    öppning(y+1, x-1, z);
+                }
+
+                if (x+1 < x_max &&
+                    rutnat[y+1][x+1][z][6]=== false &&
+                    rutnat[y+1][x+1][z][4] === false &&
+                    rutnat[y+1][x+1][z][3] === 0 &&
+                    rutnat[y+1][x+1][z][5] === false) {
+                    öppning(y+1, x+1, z);
+                }
+            }
+
+            if (y-1 >= 0 &&
+                rutnat[y-1][x][z][6]=== false &&
+                rutnat[y-1][x][z][4] === false &&
+                rutnat[y-1][x][z][3] === 0 &&
+                rutnat[y-1][x][z][5] === false) {
+
+                öppning(y-1, x, z);
+
+                if (x-1 >= 0 &&
+                    rutnat[y-1][x-1][z][6]=== false &&
+                    rutnat[y-1][x-1][z][4] === false &&
+                    rutnat[y-1][x-1][z][3] === 0 &&
+                    rutnat[y-1][x-1][z][5] === false) {
+                    öppning(y-1, x-1, z);
+                }
+
+                if (x+1 < x_max &&
+                    rutnat[y-1][x+1][z][6]=== false &&
+                    rutnat[y-1][x+1][z][4] === false &&
+                    rutnat[y-1][x+1][z][3] === 0 &&
+                    rutnat[y-1][x+1][z][5] === false) {
+                    öppning(y-1, x+1, z);
+                }
+            }
+
+            if (x-1 >= 0 &&
+                rutnat[y][x-1][z][6]=== false &&
+                rutnat[y][x-1][z][4] === false &&
+                rutnat[y][x-1][z][3] === 0 &&
+                rutnat[y][x-1][z][5] === false) {
+                öppning(y, x-1, z);
+            }
+
+            if (x+1 < x_max &&
+                rutnat[y][x+1][z][6]=== false &&
+                rutnat[y][x+1][z][4] === false &&
+                rutnat[y][x+1][z][3] === 0 &&
+                rutnat[y][x+1][z][5] === false) {
+                öppning(y, x+1, z);
+            }
+
+            // =====================
+            // z+1
+            if (z+1 < z_max) {
+
+                if (y+1 < y_max &&
+                    rutnat[y+1][x][z+1][6]=== false &&
+                    rutnat[y+1][x][z+1][4] === false &&
+                    rutnat[y+1][x][z+1][3] === 0 &&
+                    rutnat[y+1][x][z+1][5] === false) {
+
+                    öppning(y+1, x, z+1);
+
+                    if (x-1 >= 0 &&
+                        rutnat[y+1][x-1][z+1][6]=== false &&
+                        rutnat[y+1][x-1][z+1][4] === false &&
+                        rutnat[y+1][x-1][z+1][3] === 0 &&
+                        rutnat[y+1][x-1][z+1][5] === false) {
+                        öppning(y+1, x-1, z+1);
+                    }
+
+                    if (x+1 < x_max &&
+                        rutnat[y+1][x+1][z+1][6]=== false &&
+                        rutnat[y+1][x+1][z+1][4] === false &&
+                        rutnat[y+1][x+1][z+1][3] === 0 &&
+                        rutnat[y+1][x+1][z+1][5] === false) {
+                        öppning(y+1, x+1, z+1);
+                    }
+                }
+
+                if (y-1 >= 0 &&
+                    rutnat[y-1][x][z+1][6]=== false &&
+                    rutnat[y-1][x][z+1][4] === false &&
+                    rutnat[y-1][x][z+1][3] === 0 &&
+                    rutnat[y-1][x][z+1][5] === false) {
+
+                    öppning(y-1, x, z+1);
+
+                    if (x-1 >= 0 &&
+                        rutnat[y-1][x-1][z+1][6]=== false &&
+                        rutnat[y-1][x-1][z+1][4] === false &&
+                        rutnat[y-1][x-1][z+1][3] === 0 &&
+                        rutnat[y-1][x-1][z+1][5] === false) {
+                        öppning(y-1, x-1, z+1);
+                    }
+
+                    if (x+1 < x_max &&
+                        rutnat[y-1][x+1][z+1][6]=== false &&
+                        rutnat[y-1][x+1][z+1][4] === false &&
+                        rutnat[y-1][x+1][z+1][3] === 0 &&
+                        rutnat[y-1][x+1][z+1][5] === false) {
+                        öppning(y-1, x+1, z+1);
+                    }
+                }
+
+                if (x-1 >= 0 &&
+                    rutnat[y][x-1][z+1][6]=== false &&
+                    rutnat[y][x-1][z+1][4] === false &&
+                    rutnat[y][x-1][z+1][3] === 0 &&
+                    rutnat[y][x-1][z+1][5] === false) {
+                    öppning(y, x-1, z+1);
+                }
+
+                if (x+1 < x_max &&
+                    rutnat[y][x+1][z+1][6]=== false &&
+                    rutnat[y][x+1][z+1][4] === false &&
+                    rutnat[y][x+1][z+1][3] === 0 &&
+                    rutnat[y][x+1][z+1][5] === false) {
+                    öppning(y, x+1, z+1);
+                }
+
+                if (rutnat[y][x][z+1][6]=== false &&
+                    rutnat[y][x][z+1][4] === false &&
+                    rutnat[y][x][z+1][3] === 0 &&
+                    rutnat[y][x][z+1][5] === false) {
+                    öppning(y, x, z+1);
+                }
+            }
+
+            // =====================
+            // z-1
+            if (z-1 >= 0) {
+
+                if (y+1 < y_max &&
+                    rutnat[y+1][x][z-1][6]=== false &&
+                    rutnat[y+1][x][z-1][4] === false &&
+                    rutnat[y+1][x][z-1][3] === 0 &&
+                    rutnat[y+1][x][z-1][5] === false) {
+
+                    öppning(y+1, x, z-1);
+
+                    if (x-1 >= 0 &&
+                        rutnat[y+1][x-1][z-1][6]=== false &&
+                        rutnat[y+1][x-1][z-1][4] === false &&
+                        rutnat[y+1][x-1][z-1][3] === 0 &&
+                        rutnat[y+1][x-1][z-1][5] === false) {
+                        öppning(y+1, x-1, z-1);
+                    }
+
+                    if (x+1 < x_max &&
+                        rutnat[y+1][x+1][z-1][6]=== false &&
+                        rutnat[y+1][x+1][z-1][4] === false &&
+                        rutnat[y+1][x+1][z-1][3] === 0 &&
+                        rutnat[y+1][x+1][z-1][5] === false) {
+                        öppning(y+1, x+1, z-1);
+                    }
+                }
+
+                if (y-1 >= 0 &&
+                    rutnat[y-1][x][z-1][6]=== false &&
+                    rutnat[y-1][x][z-1][4] === false &&
+                    rutnat[y-1][x][z-1][3] === 0 &&
+                    rutnat[y-1][x][z-1][5] === false) {
+
+                    öppning(y-1, x, z-1);
+
+                    if (x-1 >= 0 &&
+                        rutnat[y-1][x-1][z-1][6]=== false &&
+                        rutnat[y-1][x-1][z-1][4] === false &&
+                        rutnat[y-1][x-1][z-1][3] === 0 &&
+                        rutnat[y-1][x-1][z-1][5] === false) {
+                        öppning(y-1, x-1, z-1);
+                    }
+
+                    if (x+1 < x_max &&
+                        rutnat[y-1][x+1][z-1][6]=== false &&
+                        rutnat[y-1][x+1][z-1][4] === false &&
+                        rutnat[y-1][x+1][z-1][3] === 0 &&
+                        rutnat[y-1][x+1][z-1][5] === false) {
+                        öppning(y-1, x+1, z-1);
+                    }
+                }
+
+                if (x-1 >= 0 &&
+                    rutnat[y][x-1][z-1][6]=== false &&
+                    rutnat[y][x-1][z-1][4] === false &&
+                    rutnat[y][x-1][z-1][3] === 0 &&
+                    rutnat[y][x-1][z-1][5] === false) {
+                    öppning(y, x-1, z-1);
+                }
+
+                if (x+1 < x_max &&
+                    rutnat[y][x+1][z-1][6]=== false &&
+                    rutnat[y][x+1][z-1][4] === false &&
+                    rutnat[y][x+1][z-1][3] === 0 &&
+                    rutnat[y][x+1][z-1][5] === false) {
+                    öppning(y, x+1, z-1);
+                }
+
+                if (rutnat[y][x][z-1][6]=== false &&
+                    rutnat[y][x][z-1][4] === false &&
+                    rutnat[y][x][z-1][3] === 0 &&
+                    rutnat[y][x][z-1][5] === false) {
+                    öppning(y, x, z-1);
+                }
+            }
+        }
     }
+}
+
+function bombplacerare(antal_bomber, x, y, z){ 
+    
+    let tx, ty, tz
+
+for (let i = 0; i < antal_bomber; ) {
+        
+        tx = Math.floor(Math.random()* x_max) 
+        ty = Math.floor(Math.random()* y_max) 
+        tz = Math.floor(Math.random()* z_max) 
+        if(rutnat[ty][tx][tz][4] === false){ 
+        rutnat[ty][tx][tz][4] = true 
+        i++ 
+    } 
+  } 
 }
 
 
