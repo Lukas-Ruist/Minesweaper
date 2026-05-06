@@ -1,0 +1,63 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minesweeper</title>
+<link rel="stylesheet" href="rutnat.css">
+</head>
+<body>
+
+<header>Minesweeper</header>
+
+<div class="container">
+
+    <div class="controls">
+        <input type="number" id="x" placeholder="X">
+        <input type="number" id="y" placeholder="Y">
+        <input type="number" id="z" placeholder="Z">
+
+        <input type="number" id="bombs" placeholder="Bomber">
+        <button class="start" onclick="startGame()">Start</button>
+        <button class="stop" onclick="stopGame()">Stop</button>
+
+        <div class="info">Tid: <span id="timer">0</span>s</div>
+    </div>
+
+</div>
+
+<script>
+let timer = 0;
+let interval;
+
+function startGame() {
+    timer = 0;
+    document.getElementById("timer").innerText = timer;
+    interval = setInterval(() => {
+        timer++;
+        document.getElementById("timer").innerText = timer;
+    }, 1000);
+}
+
+function stopGame() {
+    clearInterval(interval);
+}
+
+function createGrid(rows = 10, cols = 10) {
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+    grid.style.gridTemplateColumns = `repeat(${cols}, 40px)`;
+
+    for (let i = 0; i < rows * cols; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        grid.appendChild(cell);
+    }
+}
+
+createGrid();
+</script>
+
+</body>
+</html>
